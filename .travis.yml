@@ -1,0 +1,20 @@
+language: cpp
+
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-7
+
+matrix:
+  include:
+    - os: linux
+      dist: xenial
+      script:
+        - CC=gcc-7 && CXX=g++-7
+        - mkdir build && cd build
+        - cmake ../ -DCMAKE_INSTALL_PREFIX=./installed
+        - make -j2 && make install
+        - cd installed/bin
+        - ./test
