@@ -21,7 +21,7 @@ public:
     template<typename R = std::string const &>
     explicit wrap64(std::enable_if_t<std::is_unsigned<T>::value, R> s) : raw(strtoull(s)) { }
 
-    operator T() const { return raw; }
+    // operator T() const { return raw; }
     uint32_t high() const { return raw >> 32; }
     uint32_t low() const { return raw & 0xFFFFFFFF; }
     bool empty() const { return raw == 0; }
