@@ -18,3 +18,13 @@ matrix:
         - make -j2 && make install
         - cd installed/bin
         - ./test
+    - os: windows
+      env:
+        - CMAKE_PATH="/c/Program Files/CMake/bin"
+      script:
+        - mkdir build && cd build
+        - cmake ../ -DCMAKE_INSTALL_PREFIX=./installed
+        - cmake --build .
+        - cmake --build . --target INSTALL
+        - cd installed
+        - ./test.exe
