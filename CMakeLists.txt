@@ -17,7 +17,7 @@ add_subdirectory(sol)
 file(GLOB LOCAL_SOURCES
 	*.c *.cpp *.h *.hpp
 )
-add_executable(test STATIC "${LOCAL_SOURCES}")
+add_executable(test "${LOCAL_SOURCES}")
 target_include_directories(test PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}")
 
 target_link_libraries(test lualib sol)
