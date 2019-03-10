@@ -8,8 +8,9 @@
 #endif
 
 #include "forward.hpp"
+#include "lua.hpp"
 
-#include "wrap64.h"
+#include <cstdint> // (u)int64_t, (u)int32_t
 int64_t sol_lua_get(sol::types<int64_t>, lua_State* L, int index, sol::stack::record& tracking);
 template <typename Handler> bool sol_lua_check(sol::types<int64_t>, lua_State* L, int index, Handler&& handler, sol::stack::record& tracking);
 int sol_lua_push(lua_State* L, const int64_t& c);
